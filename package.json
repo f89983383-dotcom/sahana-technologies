@@ -1,0 +1,13 @@
+{
+  "name": "sahana-technologies-site",
+  "version": "1.0.0",
+  "description": "Sahana Technologies – educational computer hardware reference site (static). Build-time product image finder included.",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "find-images": "node tools/find-product-images.js",
+    "image-report": "node tools/find-product-images.js --report",
+    "download-approved-images": "node tools/find-product-images.js --download",
+    "verify-images": "node tools/find-product-images.js --verify"
+  }
+}

@@ -1,0 +1,775 @@
+Build a complete, modern, highly polished and responsive website for a Sri Lankan computer technology business called:
+
+SAHANA TECHNOLOGIES
+
+IMPORTANT:
+This is NOT an e-commerce website.
+The purpose of this website is to help visitors understand computer parts, PC components, possible PC builds, services and approximate Sri Lankan market prices.
+
+Visitors should be able to explore products and understand what each component does. Do NOT add checkout, cart, online payment, or purchase functionality.
+
+==================================================
+
+1. TECHNOLOGY
+   ==================================================
+
+Use:
+
+* HTML5
+* CSS3
+* Vanilla JavaScript
+* No backend required
+* No framework unless absolutely necessary
+* Keep the code clean, modular and easy to edit
+* Use semantic HTML
+* Use accessible buttons and navigation
+* Optimize for performance
+
+The website must work correctly on:
+
+* Windows PC
+* Desktop
+* Laptop
+* Android phones
+* iPhone / iOS
+* iPad
+* Tablets
+* Different screen sizes and orientations
+
+The website must be fully responsive.
+
+==================================================
+2. CINEMATIC INTRO EXPERIENCE
+=============================
+
+The website opening experience is the most important feature.
+
+Create a cinematic computer-assembly intro.
+
+When the website first loads, show a dark, premium technology-style background.
+
+Do NOT immediately show the normal website.
+
+First show an ENTER EXPERIENCE button so that browser audio restrictions are respected.
+
+Button:
+"ENTER SAHANA TECHNOLOGIES"
+
+When the visitor clicks it:
+
+Start the animation and sound together.
+
+ANIMATION SEQUENCE:
+
+STEP 1 — PC COMPONENTS ARRIVE
+
+Computer components should appear from different directions and smoothly move toward the center.
+
+Components can include:
+
+* PC case
+* Motherboard
+* CPU
+* CPU cooler
+* RAM sticks
+* GPU
+* NVMe SSD
+* Power supply
+* Cooling fans
+* Cables
+
+Make the movement look like the components are assembling themselves.
+
+Use smooth easing, realistic positioning, glow and subtle motion blur effects where appropriate.
+
+STEP 2 — PC ASSEMBLY
+
+The components should visually come together and form a complete desktop system unit.
+
+The animation should feel premium and cinematic rather than like simple HTML boxes moving around.
+
+STEP 3 — COOLING FAN
+
+After assembly, cooling fans start spinning.
+
+Add a subtle cooling-fan sound effect.
+
+The fan sound should gradually increase rather than suddenly becoming loud.
+
+STEP 4 — POWER ON
+
+Show a subtle power-on animation.
+
+Add:
+
+* power LED effect
+* RGB glow
+* subtle electronic startup sound
+* screen/light activation
+
+Do not make the sound too loud.
+
+STEP 5 — MONITOR CONNECTION
+
+Animate a cable visually connecting the system unit to the monitor.
+
+Then turn the monitor on.
+
+STEP 6 — SHOP BRAND
+
+The monitor screen should display:
+
+SAHANA TECHNOLOGIES
+
+with a professional subtitle such as:
+
+COMPUTER SOLUTIONS
+
+Use a premium technology animation for the logo/text.
+
+STEP 7 — ENTER THE MONITOR
+
+After the brand animation, smoothly zoom the camera into the monitor screen.
+
+The monitor screen should expand until it becomes the main website.
+
+The transition should feel like the visitor is entering the computer screen.
+
+Then reveal the main website.
+
+==================================================
+3. AUDIO SYSTEM
+===============
+
+Add sound effects for:
+
+* component movement
+* component connection/click
+* PC assembly
+* cooling fan
+* PC power-on
+* monitor startup
+* logo reveal
+* transition into website
+
+Do not use copyrighted music.
+
+Use either:
+
+* generated/simple Web Audio API sounds
+  OR
+* clearly reusable local sound assets
+
+Do not depend on external audio URLs.
+
+Because browsers can block autoplay, audio must start only after the user presses the ENTER button.
+
+Add a small:
+
+🔊 Sound On/Off
+
+control.
+
+If sound is disabled, the entire animation must still work perfectly.
+
+On mobile devices, sound must not break the experience.
+
+==================================================
+4. MOBILE INTRO
+===============
+
+The intro must be specially optimized for small screens.
+
+On desktop:
+
+* show a wide cinematic computer setup
+* system unit and monitor clearly visible
+
+On mobile:
+
+* scale the components appropriately
+* prevent components from going outside the viewport
+* keep the animation centered
+* reduce heavy effects if necessary for performance
+* keep the animation smooth
+
+The intro must work on:
+
+* Android Chrome
+* iPhone Safari
+* iPad Safari
+* Windows Chrome
+* Microsoft Edge
+* Firefox
+* Safari desktop
+
+Include a Skip Intro button.
+
+If the user skips the intro, immediately show the main website.
+
+Store a local preference if appropriate so returning visitors can optionally skip the full intro.
+
+==================================================
+5. MAIN WEBSITE
+===============
+
+After the intro, show the main Sahana Technologies website.
+
+Use a professional modern computer-shop / technology visual identity.
+
+Suggested style:
+
+* dark premium technology theme
+* clean typography
+* subtle blue/cyan/white technology accents
+* glass-like cards where appropriate
+* smooth animations
+* professional spacing
+* responsive layout
+
+Do NOT overuse RGB effects.
+
+The website must look like a real professional technology company, not a gaming-only website.
+
+==================================================
+6. NAVIGATION
+=============
+
+Create a responsive navigation bar.
+
+Navigation:
+
+HOME
+PC COMPONENTS
+PC BUILDER
+PC BUILDS
+SERVICES
+ABOUT
+CONTACT
+
+On mobile, convert the navigation into a clean hamburger menu.
+
+Add smooth scrolling where appropriate.
+
+==================================================
+7. HOME SECTION
+===============
+
+Create a strong hero section.
+
+Heading:
+
+SAHANA TECHNOLOGIES
+
+Subtitle:
+
+Computer Solutions & Hardware
+
+Supporting text:
+
+Explore computer components, understand their purpose, compare different hardware options and discover suitable PC configurations.
+
+Buttons:
+
+EXPLORE COMPONENTS
+BUILD YOUR PC
+
+Do not make the website look like an online store.
+
+==================================================
+8. PC COMPONENTS SECTION
+========================
+
+Create component categories.
+
+Categories:
+
+PROCESSORS
+MOTHERBOARDS
+GRAPHICS CARDS
+RAM
+STORAGE
+POWER SUPPLIES
+PC CASES
+CPU COOLING
+CASE FANS
+MONITORS
+KEYBOARDS
+MICE
+HEADSETS
+LAPTOPS
+PRINTERS
+NETWORKING
+
+Each component card should show:
+
+* product/component image or visual
+* component name
+* brand
+* basic specification
+* approximate/reference price
+* what it is used for
+* suitable use case
+
+Add filters/search.
+
+Example filters:
+
+Budget
+Gaming
+Office
+Student
+Content Creation
+High Performance
+
+==================================================
+9. EDUCATIONAL PRODUCT INFORMATION
+==================================
+
+This is very important.
+
+When a visitor clicks a component, show a detailed information panel.
+
+For example CPU:
+
+WHAT IS A CPU?
+
+WHAT DOES IT DO?
+
+IMPORTANT SPECIFICATIONS:
+
+* Cores
+* Threads
+* Clock speed
+* Socket
+* Generation/platform
+
+WHO NEEDS IT?
+
+WHAT SHOULD YOU CHECK BEFORE BUYING?
+
+Do the same type of educational information for:
+
+CPU
+GPU
+RAM
+SSD
+HDD
+Motherboard
+PSU
+CPU Cooler
+Case
+Monitor
+
+Keep explanations simple enough for beginners but technically useful.
+
+==================================================
+10. PRICE INFORMATION
+=====================
+
+Use Sri Lankan market pricing as a general reference.
+
+Use publicly available Sri Lankan computer-store listings such as MSK Computers and MD Computers as inspiration for realistic categories and approximate price ranges.
+
+IMPORTANT:
+
+Prices must NOT be presented as guaranteed Sahana Technologies prices.
+
+Display:
+
+"Approximate Sri Lankan market reference price"
+
+or
+
+"Reference price — availability and market prices may change."
+
+Do not copy product descriptions, images, branding, or website layouts from other stores.
+
+Create original cards and original descriptions.
+
+Do not claim live stock availability.
+
+==================================================
+11. PC BUILDER
+==============
+
+Create an interactive PC Builder.
+
+The user can select:
+
+CPU
+Motherboard
+RAM
+GPU
+Storage
+PSU
+Case
+CPU Cooler
+Case Fans
+
+Then show the selected build visually.
+
+Display:
+
+SELECTED COMPONENTS
+
+and:
+
+ESTIMATED TOTAL
+
+The total should update automatically using the reference prices.
+
+Show compatibility warnings where possible.
+
+Examples:
+
+* CPU socket does not match motherboard
+* DDR4 RAM selected with DDR5-only motherboard
+* PSU wattage may be insufficient
+* GPU may not fit selected case
+
+Keep compatibility logic understandable.
+
+Add build categories:
+
+OFFICE / STUDENT
+BUDGET GAMING
+MID-RANGE GAMING
+HIGH-END GAMING
+CONTENT CREATION
+
+IMPORTANT:
+This is an educational/configuration tool, not an online ordering system.
+
+==================================================
+12. PC BUILD EXAMPLES
+=====================
+
+Create example builds such as:
+
+BUDGET OFFICE PC
+STUDENT PC
+ENTRY GAMING PC
+MID-RANGE GAMING PC
+HIGH-PERFORMANCE GAMING PC
+CONTENT CREATION PC
+
+Each build should explain:
+
+* CPU
+* GPU
+* RAM
+* Storage
+* PSU
+* expected type of usage
+
+Avoid claiming exact FPS unless verified.
+
+==================================================
+13. SERVICES
+============
+
+Create a professional services section.
+
+Sahana Technologies services can include:
+
+COMPUTER REPAIR
+
+* Desktop troubleshooting
+* Laptop troubleshooting
+* No-display diagnosis
+* Slow PC diagnosis
+* Hardware troubleshooting
+* Overheating diagnosis
+* Power-related troubleshooting
+
+WINDOWS & SOFTWARE
+
+* Windows installation
+* Windows setup
+* Driver installation
+* Software installation
+* System configuration
+* Windows troubleshooting
+* PC formatting and setup
+
+HARDWARE SERVICES
+
+* RAM upgrade
+* SSD upgrade
+* HDD/SSD replacement
+* GPU installation
+* CPU upgrade
+* PC cleaning
+* Thermal paste replacement
+* Cooling/fan installation
+* PC assembly
+* Cable management
+
+DATA & STORAGE
+
+* Storage upgrade
+* Basic data transfer
+* Backup setup
+* HDD/SSD health checking
+
+NETWORKING
+
+* Basic home/office network setup
+* Router configuration
+* LAN setup
+* Wi-Fi troubleshooting
+
+PC BUILDING
+
+* Custom PC configuration
+* Component compatibility checking
+* Gaming PC configuration
+* Office PC configuration
+* Student PC configuration
+* Upgrade consultation
+
+Do not promise recovery of data that cannot safely be recovered.
+
+==================================================
+14. CONTACT BUTTONS
+===================
+
+Phone number:
+
+0715423700
+
+Display it prominently.
+
+Add two floating buttons:
+
+CALL
+WHATSAPP
+
+CALL button must use:
+
+tel:+94715423700
+
+WhatsApp button must use:
+
+https://wa.me/94715423700
+
+When the visitor clicks CALL:
+
+* On supported mobile devices, open the phone dial interface with the number ready.
+
+When the visitor clicks WHATSAPP:
+
+* Open WhatsApp chat for +94 71 542 3700.
+
+Do NOT use an auto-send WhatsApp message.
+Open the chat only.
+
+Make both buttons clearly visible but not intrusive.
+
+==================================================
+15. CONTACT SECTION
+===================
+
+Include:
+
+SAHANA TECHNOLOGIES
+
+Phone:
+0715423700
+
+WhatsApp:
+0715423700
+
+Add:
+
+* Call button
+* WhatsApp button
+* Email placeholder
+* Address placeholder
+* Google Maps placeholder
+
+Do not invent an address or email address.
+
+Use placeholders that can easily be edited later.
+
+==================================================
+16. ABOUT SECTION
+=================
+
+Explain that Sahana Technologies focuses on:
+
+* Computer hardware
+* PC components
+* PC building
+* Upgrades
+* Repairs
+* Software setup
+* Technical support
+* Helping customers understand suitable hardware
+
+Keep it professional.
+
+==================================================
+17. DESIGN
+==========
+
+The design should feel:
+
+Premium
+Modern
+Professional
+Technology-focused
+Clean
+Fast
+Trustworthy
+
+Avoid:
+
+* excessive animations
+* excessive neon
+* excessive gradients
+* clutter
+* fake reviews
+* fake certifications
+* fake customer numbers
+* fake awards
+
+Use animations only where they improve the experience.
+
+==================================================
+18. PERFORMANCE
+===============
+
+The website must load efficiently.
+
+Optimize:
+
+* CSS
+* JavaScript
+* images
+* animations
+
+Use lazy loading for non-critical images.
+
+Respect:
+
+prefers-reduced-motion
+
+If the visitor has reduced motion enabled, provide a simplified intro.
+
+Avoid unnecessarily heavy 3D libraries.
+
+The intro should look 3D/cinematic using efficient CSS/JavaScript techniques unless a lightweight 3D implementation is genuinely useful.
+
+==================================================
+19. RESPONSIVE REQUIREMENTS
+===========================
+
+Test the layout conceptually for:
+
+320px
+375px
+390px
+414px
+768px
+1024px
+1280px
+1440px
+1920px
+
+Nothing should overflow horizontally.
+
+Buttons must be easy to tap on phones.
+
+Text must remain readable.
+
+Cards must rearrange automatically.
+
+Navigation must work on mobile.
+
+The PC assembly intro must remain inside the viewport.
+
+==================================================
+20. FILE STRUCTURE
+==================
+
+Create a clean project structure:
+
+index.html
+style.css
+script.js
+
+assets/
+images/
+sounds/
+icons/
+
+If possible, keep the first version easy to run locally by opening index.html.
+
+If the sound assets are not available, create lightweight Web Audio API sound effects rather than depending on external URLs.
+
+==================================================
+21. IMPORTANT BUSINESS REQUIREMENT
+==================================
+
+This website is primarily an INFORMATION and EDUCATION website.
+
+It should help a visitor answer:
+
+"What computer parts do I need?"
+
+"What does this component do?"
+
+"What is the difference between these parts?"
+
+"What type of PC is suitable for me?"
+
+"How much does a typical component cost in Sri Lanka?"
+
+"What services does Sahana Technologies provide?"
+
+Do NOT build a checkout system.
+
+Do NOT build online payment.
+
+Do NOT build a shopping cart.
+
+Do NOT pretend the prices are live.
+
+==================================================
+22. FINAL QUALITY CHECK
+=======================
+
+Before finishing:
+
+* Check all navigation links.
+* Check mobile responsiveness.
+* Check desktop responsiveness.
+* Check CALL button.
+* Check WhatsApp button.
+* Check PC Builder calculations.
+* Check component filters.
+* Check intro animation.
+* Check Skip Intro.
+* Check Sound On/Off.
+* Check browser audio restrictions.
+* Check prefers-reduced-motion.
+* Check that no text overlaps.
+* Check that no horizontal scrolling occurs.
+* Check that all buttons work.
+* Check that the website works without a backend.
+
+Create a polished production-quality first version.
+
+The final result should feel like:
+
+A professional Sri Lankan computer technology company website combined with an interactive PC-learning and PC-building experience.
+
+Brand:
+
+SAHANA TECHNOLOGIES
+
+Phone:
+
+0715423700

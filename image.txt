@@ -1,0 +1,665 @@
+PROJECT: SAHANA TECHNOLOGIES
+FEATURE: AUTOMATIC PRODUCT IMAGE FINDER AND DOWNLOADER
+
+I already have a Sahana Technologies computer-information website with approximately 75 products/components.
+
+I want to add an AUTOMATIC PRODUCT IMAGE FINDING SYSTEM.
+
+IMPORTANT:
+This is NOT an e-commerce website.
+The website is an educational/reference website for computer parts and approximate Sri Lankan market prices.
+
+==================================================
+MAIN GOAL
+==================================================
+
+I do NOT want to manually search Google Images, download every image, rename every file, and put every image into folders.
+
+Create a build-time image-finding system that can:
+
+1. Read all existing products from the website.
+2. Automatically determine each product's name and category.
+3. Search the web for a suitable product image.
+4. Prefer official manufacturer/product pages and sources that permit reuse.
+5. Download the selected image locally.
+6. Save it into the correct product category folder.
+7. Give the image a clean filename.
+8. Automatically connect the downloaded image to the correct product card.
+9. Never break the website if an image cannot be found.
+
+==================================================
+IMPORTANT COPYRIGHT / SOURCE RULES
+==================================================
+
+DO NOT simply scrape random Google Images.
+
+Do not download images when their usage rights are clearly unsuitable.
+
+Prefer:
+
+1. Official manufacturer product pages
+2. Manufacturer media/product assets where appropriate
+3. Product images with clear reuse/redistribution permission
+4. Other reliable sources where image usage is permitted
+
+Use Google/Bing image search only as a discovery mechanism if legally and technically appropriate, not as a source to blindly scrape images.
+
+Do not copy entire product pages.
+
+Do not copy product descriptions.
+
+Do not copy another company's website design.
+
+Only obtain the minimum image needed for the product card.
+
+Add a source/attribution record for every downloaded image when the source requires attribution.
+
+==================================================
+DO NOT USE RUNTIME SCRAPING
+==================================================
+
+The public website will eventually be hosted on GitHub Pages.
+
+Therefore:
+
+DO NOT make the browser scrape Google Images.
+
+DO NOT require a backend for normal website operation.
+
+DO NOT use runtime web scraping from JavaScript.
+
+The image search/download system should run LOCALLY during development/build time.
+
+After the images are downloaded, the website should work normally using local files.
+
+==================================================
+CREATE A BUILD-TIME TOOL
+==================================================
+
+Create a script such as:
+
+tools/find-product-images.js
+
+or an appropriate Python script if that is more reliable.
+
+Also create:
+
+tools/image-sources.json
+
+and:
+
+tools/image-cache.json
+
+if useful.
+
+The image finder must be reusable.
+
+I should be able to run something like:
+
+npm run find-images
+
+or:
+
+node tools/find-product-images.js
+
+to scan the product database and find missing images.
+
+If a Python implementation is used, provide a simple command such as:
+
+python tools/find-product-images.py
+
+==================================================
+PRODUCT DISCOVERY
+==================================================
+
+Do NOT make me manually enter the 75 products again.
+
+Inspect the existing project and find where the product data currently exists.
+
+It may be:
+
+- JavaScript array
+- JSON
+- HTML
+- another data file
+
+Use the existing product database.
+
+Automatically extract:
+
+- product name
+- category
+- brand
+- model
+- product ID if available
+
+Do not duplicate the product database unnecessarily.
+
+==================================================
+CATEGORY FOLDERS
+==================================================
+
+Create:
+
+assets/
+  products/
+    cpu/
+    gpu/
+    motherboard/
+    ram/
+    storage/
+    psu/
+    cases/
+    cooling/
+    monitors/
+    keyboards/
+    mice/
+    headsets/
+    laptops/
+    printers/
+    networking/
+
+Map existing product categories to these folders.
+
+If an existing category has a different name, create a sensible mapping.
+
+==================================================
+IMAGE FILENAMES
+==================================================
+
+Automatically generate safe filenames.
+
+Examples:
+
+Intel Core i5-12400F
+
+becomes:
+
+i5-12400f.jpg
+
+Intel Core i7-14700F
+
+becomes:
+
+i7-14700f.jpg
+
+AMD Ryzen 5 5600
+
+becomes:
+
+ryzen-5-5600.jpg
+
+NVIDIA GeForce RTX 4060
+
+becomes:
+
+rtx-4060.jpg
+
+Kingston Fury 16GB DDR4
+
+becomes:
+
+kingston-fury-16gb-ddr4.jpg
+
+Remove unsafe characters.
+
+Use lowercase.
+
+Use hyphens instead of spaces.
+
+Avoid duplicate filenames.
+
+==================================================
+IMAGE SEARCH QUALITY
+==================================================
+
+The system must search using a precise product query.
+
+For example:
+
+"Intel Core i5-12400F official product image"
+
+"AMD Ryzen 5 5600 official product image"
+
+"NVIDIA RTX 4060 product image"
+
+"Kingston Fury 16GB DDR4 product image"
+
+Use brand + model whenever possible.
+
+Do not select a visually similar but incorrect product.
+
+For example:
+
+DO NOT use an RTX 4070 image for an RTX 4060 product.
+
+DO NOT use an i5-13400 image for an i5-12400F product.
+
+The model must match.
+
+==================================================
+IMAGE VALIDATION
+==================================================
+
+Before saving an image:
+
+- Check that the URL returns an actual image.
+- Check HTTP status.
+- Check Content-Type.
+- Check file size.
+- Check image dimensions.
+- Reject tiny images.
+- Reject obvious icons/logos when a product photo is available.
+- Reject HTML pages saved as image files.
+- Reject broken images.
+- Reject unrelated images.
+
+Prefer product images with:
+
+- clear product visibility
+- plain/clean background
+- reasonable resolution
+- correct product model
+- minimal watermarks
+
+Prefer approximately 500px or higher where available.
+
+Do not download unnecessarily huge images.
+
+Optimize images where appropriate.
+
+==================================================
+SUPPORTED IMAGE FORMATS
+==================================================
+
+Support:
+
+.jpg
+.jpeg
+.png
+.webp
+
+Convert to a suitable format only when necessary.
+
+Do not reduce quality excessively.
+
+==================================================
+IMAGE CACHE
+==================================================
+
+Create an image cache.
+
+Once an image has been successfully downloaded, do NOT download it again every time.
+
+Store:
+
+- product name
+- product ID
+- local filename
+- source URL
+- source website
+- date found
+- image URL
+- attribution requirement if known
+
+Example:
+
+{
+  "product": "Intel Core i5-12400F",
+  "localImage": "assets/products/cpu/i5-12400f.jpg",
+  "source": "example.com",
+  "sourceUrl": "...",
+  "foundAt": "..."
+}
+
+==================================================
+DO NOT OVERWRITE GOOD IMAGES
+==================================================
+
+If a local image already exists:
+
+DO NOT replace it automatically.
+
+Only replace it if:
+
+- the user explicitly requests it
+- the current image is broken
+- the current image is clearly incorrect
+
+Add a command/option such as:
+
+--force
+
+if a full re-download is required.
+
+==================================================
+MANUAL APPROVAL MODE
+==================================================
+
+This is VERY IMPORTANT.
+
+Do not automatically download questionable images.
+
+Create an optional review mode.
+
+For example:
+
+npm run find-images
+
+should search and produce a report.
+
+Then:
+
+npm run download-approved-images
+
+can download approved results.
+
+OR provide a simple interactive terminal confirmation:
+
+Product:
+Intel Core i5-12400F
+
+Candidate image:
+[URL]
+
+Source:
+[website]
+
+Download this image? (y/n)
+
+For large batches, support:
+
+--auto-approved
+
+only for sources that meet the predefined trusted-source rules.
+
+==================================================
+IMAGE REPORT
+==================================================
+
+Create:
+
+image-report.json
+
+and/or:
+
+image-report.html
+
+The report should show:
+
+Product
+Category
+Image status
+Local image
+Source
+Source URL
+Confidence
+Reason if rejected
+
+Statuses:
+
+FOUND
+MISSING
+REVIEW
+FAILED
+
+Example:
+
+Intel Core i5-12400F
+FOUND
+assets/products/cpu/i5-12400f.jpg
+
+Intel Core i7-14700F
+REVIEW
+
+Unknown product
+MISSING
+
+==================================================
+WEBSITE INTEGRATION
+==================================================
+
+Update the existing product card system.
+
+Every product should support:
+
+image
+
+If image exists:
+
+display the local product image.
+
+If image does not exist:
+
+display the current professional placeholder.
+
+Never display a broken image icon.
+
+Use:
+
+object-fit: contain;
+
+Maintain product aspect ratio.
+
+Keep consistent image-area height.
+
+Add subtle hover animation.
+
+Do not redesign the existing cards unnecessarily.
+
+==================================================
+AUTOMATIC IMAGE PATH
+==================================================
+
+If a product has:
+
+image:
+"assets/products/cpu/i5-12400f.jpg"
+
+use it.
+
+If image is not explicitly defined, automatically calculate the expected local image path from:
+
+category + normalized product name.
+
+Support:
+
+.jpg
+.jpeg
+.png
+.webp
+
+Do not use absolute Windows paths.
+
+Use relative paths such as:
+
+assets/products/cpu/i5-12400f.jpg
+
+This is necessary for GitHub Pages.
+
+==================================================
+OFFLINE WEBSITE AFTER DOWNLOAD
+==================================================
+
+After the build-time image finder finishes:
+
+The actual public website must NOT depend on the image search service.
+
+The website should load images from:
+
+assets/products/...
+
+This means:
+
+GitHub Pages
+NO BACKEND
+NO IMAGE API REQUIRED
+NO RUNTIME SCRAPING
+
+The site must still work if the image-search script is not running.
+
+==================================================
+GITHUB PAGES COMPATIBILITY
+==================================================
+
+Make sure all local paths work on GitHub Pages.
+
+Do NOT use:
+
+C:\Users\...
+file://...
+localhost URLs
+absolute filesystem paths
+
+Use relative paths only.
+
+Test paths assuming the site is hosted under:
+
+https://username.github.io/repository-name/
+
+rather than assuming the site is hosted at the root domain.
+
+==================================================
+OPTIONAL IMAGE SEARCH API SUPPORT
+==================================================
+
+If a search API is needed, design the tool so the API key is NOT placed in:
+
+index.html
+script.js
+CSS
+GitHub repository
+
+Use environment variables.
+
+Example:
+
+IMAGE_SEARCH_API_KEY
+
+Add:
+
+.env.example
+
+but NEVER create a real .env file containing a secret.
+
+Add .env to .gitignore.
+
+If no API key is available, the tool should explain clearly how to configure one.
+
+Do not hard-code API keys.
+
+==================================================
+SAFE FAILURE
+==================================================
+
+If an image cannot be found:
+
+DO NOT stop the entire build.
+
+Continue processing the remaining products.
+
+At the end show:
+
+75 products scanned
+XX images found
+XX require review
+XX not found
+XX failed
+
+==================================================
+COMMANDS
+==================================================
+
+Add convenient commands to package.json if Node.js is used.
+
+For example:
+
+npm run find-images
+
+npm run image-report
+
+npm run download-approved-images
+
+npm run verify-images
+
+Use appropriate names if a different implementation is better.
+
+Also create a short:
+
+IMAGE_SYSTEM_README.md
+
+Explain:
+
+1. How to run the image finder.
+2. How to add new products.
+3. Where images are stored.
+4. How filenames are generated.
+5. How to review image sources.
+6. How to replace an image.
+7. How to rebuild before publishing to GitHub Pages.
+
+==================================================
+VERIFY EVERYTHING
+==================================================
+
+After implementation:
+
+1. Scan all existing products.
+2. Identify all missing images.
+3. Test the image filename generation.
+4. Test category mapping.
+5. Test image validation.
+6. Test the fallback placeholder.
+7. Test product cards.
+8. Test mobile.
+9. Test desktop.
+10. Test GitHub Pages relative paths.
+11. Make sure no broken images appear.
+12. Make sure no API keys are exposed.
+13. Make sure the website works without the image-finder script running.
+
+Do not delete or damage the existing website.
+
+Do not change the existing product prices or descriptions unless required for image integration.
+
+Do not create fake product images.
+
+Do not use random unrelated images.
+
+==================================================
+FINAL RESULT
+==================================================
+
+I want to be able to add a new product like:
+
+{
+  name: "AMD Ryzen 5 5600",
+  category: "Processors"
+}
+
+Then run:
+
+npm run find-images
+
+and have the system determine:
+
+category:
+cpu
+
+filename:
+ryzen-5-5600.jpg
+
+find a suitable legitimate product image,
+save it locally,
+update the image mapping,
+and make the website display it.
+
+The final website must remain a static GitHub Pages website.
+
+The automatic image finder is only a DEVELOPMENT/BUILD-TIME tool.
+
+Start by inspecting my existing project and product database before changing anything.
+
+Do not rebuild the entire website from scratch.
+
+Preserve the current Sahana Technologies design and functionality.

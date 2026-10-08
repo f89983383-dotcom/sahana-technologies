@@ -1,0 +1,37 @@
+IMPORTANT: Fix the cinematic intro behavior.
+
+I do NOT want the cinematic intro to play on every page or every navigation.
+
+Required behavior:
+
+1. When a visitor opens the website for a NEW visit/session, show the full cinematic intro.
+2. After the visitor clicks ENTER WEBSITE and the intro finishes, mark the current browser session as having completed the intro.
+3. During that same visit/session, navigating between Home, PC Components, PC Builder, PC Builds, Services, About and Contact must NEVER show the intro again.
+4. If the visitor closes the website/browser and later comes back and starts a NEW visit/session, show the full cinematic intro again.
+5. Therefore:
+   - New visit/session = SHOW INTRO
+   - Navigation within the same visit/session = SKIP INTRO
+   - Leave/close website and return later = SHOW INTRO AGAIN
+6. Use sessionStorage for the current visit/session state, NOT localStorage.
+7. Do not permanently remember that the visitor has already seen the intro.
+8. Each browser/device should have its own session behavior.
+9. Keep the existing ENTER WEBSITE, Sound On/Off and Skip Intro controls.
+10. Audio must only start after user interaction because of browser autoplay restrictions.
+11. Make sure refreshing a page during the same session does not unexpectedly restart the intro.
+12. Make sure normal website navigation does not restart the intro.
+13. When a new browser session starts after the previous session has ended, the intro must appear again.
+14. Keep the system responsive on desktop, laptop, Android, iPhone, iPad and tablets.
+15. Do not break the existing product database, automatic product images, PC Builder, services, WhatsApp button, call button or other website features.
+
+Implementation idea:
+- Use sessionStorage with a key such as "sahanaIntroCompleted".
+- On initial website load:
+    if sessionStorage.getItem("sahanaIntroCompleted") === "true":
+        hide intro and show main website.
+    else:
+        show cinematic intro.
+- When ENTER WEBSITE is clicked or the intro is completed:
+    sessionStorage.setItem("sahanaIntroCompleted", "true");
+- Do not use localStorage for this purpose.
+
+First inspect my existing website and current intro/navigation code, then modify it cleanly instead of creating duplicate code.
